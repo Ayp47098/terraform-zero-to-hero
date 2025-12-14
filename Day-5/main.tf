@@ -9,7 +9,7 @@ variable "cidr" {
 
 resource "aws_key_pair" "example" {
   key_name   = "terraform-demo-abhi"  # Replace with your desired key name
-  public_key = file("~/.ssh/id_rsa.pub")  # Replace with the path to your public key file
+  public_key = file("/home/codespace/.ssh/id_rsa.pub")  # Replace with the path to your public key file
 }
 
 resource "aws_vpc" "myvpc" {
@@ -82,7 +82,7 @@ resource "aws_instance" "server" {
   connection {
     type        = "ssh"
     user        = "ubuntu"  # Replace with the appropriate username for your EC2 instance
-    private_key = file("~/.ssh/id_rsa")  # Replace with the path to your private key
+    private_key = file("/home/codespace/.ssh/id_rsa")  # Replace with the path to your private key
     host        = self.public_ip
   }
 
@@ -103,4 +103,3 @@ resource "aws_instance" "server" {
     ]
   }
 }
-

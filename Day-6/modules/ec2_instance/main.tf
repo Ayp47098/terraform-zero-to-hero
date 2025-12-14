@@ -1,16 +1,13 @@
 provider "aws" {
-    region = "us-east-1"
+  region = "us-east-1"  # Replace with your desired AWS region.
 }
-
 variable "ami" {
-  description = "This is AMI for the instance"
+  description = "This is the AMI for the instance"
 }
-
 variable "instance_type" {
-  description = "This is the instance type, for example: t2.micro"
+  description = "This is the instance type, for example,t2.micro "
 }
-
 resource "aws_instance" "example" {
-    ami = var.ami
-    instance_type = var.instance_type
+  ami=var.ami
+  instance_type = var.instance_type
 }
